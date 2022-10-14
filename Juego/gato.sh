@@ -1,4 +1,5 @@
 #!/bin/bash
+#Declaro una matriz y las banderas
 declare -A matrix
 a=0
 b=0
@@ -13,9 +14,11 @@ l=1
 num_filas=11
 num_colum=11
 f2="%s"
+#creo una funcion la cual inicializa el tablero y dibuja en cada apartado de memoria una parte del tablero
 iniciar(){
 for ((i=0;i<num_filas;i++)) do
 	for ((j=0;j<num_colum;j++)) do
+		#lo que hago aqui es acceder a los espacios de memoria y modificarlos
 		matrix[$i,$j]="'"
 		if [ i==3 ]
 		then
@@ -36,9 +39,9 @@ for ((i=0;i<num_filas;i++)) do
 	done
 done
 }
-
+#inicializo el tablero mandando a llamar la funcion
 iniciar
-
+#aqui lo que hago es imprimir el tablero
 tablero(){
 for ((i=0;i<=num_filas;i++)) do
     for ((j=0;j<=num_colum;j++)) do
@@ -47,16 +50,21 @@ for ((i=0;i<=num_filas;i++)) do
 	echo
 done
 }
+#aqui lo que hago es una funcion la cual obtendra las posiciones del usuario y las dibujara
 modificar(){
 echo
+#pido la posicion
 echo "Dime la posicion"
 read p
+#entro en un case para saber que hacer y en que espacio dibujar La X
 case $p in
 	1)
 	case $a in
 		0)
 		matrix[1,1]="X"
+		#la bandera con las letra de la a a la k las utilizo como banderas para saber si el espacio esta ocupado o no
 		a=$(( a + 1 ))
+		#la bandera l es para saber a quien le toca
 		l=$(( l + 1 ))
 		jugar
 		;;
@@ -185,14 +193,18 @@ case $p in
 	;;
 esac
 }
+#Aqui creo una funcion y programo una IA (UNA IA MUY FACIL) con random y programo lo que hara
 computadora(){
 p=$((1 + $RANDOM % 9))
+#del random obtengo un posible espacio
 case $p in
 	1)
 	case $a in
 		0)
+		#la bandera con cada letra dice si el espacio esta ocupado o no y si no pues lo dibuja y aumenta la bandera para que ya no sea ocupada
 		matrix[1,1]="O"
 		a=$(( a + 1 ))
+		#la bandera con la letra l me permite saber de quien es el turno
 		l=$(( l - 1 ))
 		jugar
 		;;
@@ -310,6 +322,7 @@ case $p in
 	;;
 esac
 }
+#en esta funcion compruebo si el juego ya acabo o no
 comprobar(){
 if [[ $a -eq 1&&$b -eq 1&&$c -eq 1 ]]
 then
@@ -397,10 +410,13 @@ then
 	echo "EL JUEGO A TERMINADO"
 fi
 }
+#aqui pues le pongo un titulo cuando inicia
 echo "JUEGO DEL GATO Y EL RATON"
+#creo la funcion principal
 jugar(){
 tablero
 comprobar
+#Verifico si todos los espacios ya fueron ocupados.
 while [[ $a -eq 0||$b -eq 0||$c -eq 0||$d -eq 0||$e -eq 0||$f -eq 0||$g -eq 0||$h -eq 0||$k -eq 0 ]]
 do
 	case $l in
