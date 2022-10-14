@@ -4,14 +4,13 @@ commands=("help" "search" "infosys" "datetime" "credits" "game" "mp3" "clear" "e
 
 function execute(){
     params=()
-    for i in $@
+    arr=($@)
+    command=${arr[0]}
+    i=1
+    while [[ $i -le $# ]]
     do
-        if [[ " ${commands[*]} " =~ " $i " ]]
-        then 
-            command=$i
-        else
-            params+=($i)
-        fi
+        params+=(${arr[$i]})
+        ((i++))
     done
     case $command in
         ${commands[0]})
