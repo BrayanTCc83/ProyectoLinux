@@ -33,7 +33,7 @@ function execute(){
             ./Juego/gato.sh ${params[@]}
         ;;
         ${commands[6]})
-            ./help.sh ${params[@]}
+            ./comandos/mp3.sh ${params[@]}
         ;;
         ${commands[7]})
             clear
