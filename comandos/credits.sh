@@ -28,7 +28,19 @@ help: fue muy sencillo de implementar, solo se requiere la entrada del comando a
     #Cano
     "Pues se le descompuso la compu, ya no inicia ni Windows ni linux bro, no se."
     #Emilio
-    "Escribe aqui"
+    "Para realizar los comandos lo que realice fue:\n
+gato: En este caso primero pensaba en realizar todos los posibles casos del jugador para que la computadora pudiera resolverlos
+	Pero luego me di cuenta que esto seria muy dificil por lo que decidi mejor hacer una matriz la cual dibujara el tablero y
+	cada vez que lo mandara a llamar pues lo actualizara re dibujando el espacio, para que la computadora jugara implemente
+	un random del 1 al 9 para que la compu escogiera una opcion al azar, asi como tambien implemente banderas para que no se
+	sobre escribieran las jugadas, tambien implemente un verificador el cual verifica si la partida acabo por si se acaba antes de
+	llenar las casillas
+mp3: En este comando primero agregue un comando el cual verifica si esta o no el programa en la paqueteria instalada, si no pues lo instala
+	si si pues procede a la ejecucion de mandar a llamara una interfaz grafica incluida en el SO, en la cual programe 3 intrucciones
+	LISTA, INSTRUCCIONES Y REPRODUCIR, la verdad pensaba en incluir la de saltar, poner play y eso, pero mpg123 es un poco intrusivo
+	y no encontre la manera de mandar sus instrucciones por defecto desde comandos, por lo que solo agregue esas, Lista lo que hace
+	es mostrar tus canciones, instrucciones te dice como funciona el mpg123 y reproducir inicializa la primera toda la lista de canciones.
+	para acceder a la interfaz grafica primero tuve que pedir la ruta para programar lo antes mencionado."
 )
 about=(
     #Brayan
@@ -47,7 +59,11 @@ about=(
     #Cano
     "Pues ha de estar de chill."
     #Emilio
-    "Escribe aqui"
+    "
+    Los programas que me tocaron hacer fueron algo tediosos, tuve que investigar mucho, para poder realizar ciertas cosas
+    por que funcionan diferente las sentencias en bash que en otros lenguajes de programacion, asi como tambien tuve que investigar
+    paqueterias y sus funciones, la verdad eso es lo que se me complico mientras programaba, muchos errores que corregi pero quedo
+    "
 )
 
 if [ $# == 0 ]
